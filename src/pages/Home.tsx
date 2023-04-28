@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TershiXia from "../assets/tershi.jpg";
+import LinkBtn from "../components/button";
 
 const Home = () => {
   return (
@@ -12,15 +13,44 @@ const Home = () => {
 
       <div className="pt-5">
         {/* Facebook */}
-        <button type="button" className="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Default</button>
+        <LinkBtn
+          text="Facebook"
+          color="bg-[#1971E6] hover:bg-blue-800 dark:hover:bg-blue-700"
+          link="https://fb.com/TershiXia"
+          icon="facebook"
+        />
 
         {/* YouTube */}
+        <LinkBtn 
+        text="YouTube" 
+        color="bg-red-700 hover:bg-red-800 dark:hover:bg-red-700" 
+        link="https://youtube.com/@TershiXia" 
+        icon="youtube"
+        />
 
         {/* Instagram */}
+        <LinkBtn 
+        text="Instagram" 
+        color="bg-[#D50D8C] hover:bg-red-800 dark:hover:bg-red-700" 
+        link="https://fb.com/TershiXia" 
+        icon="instagram"
+        />
 
         {/* Twitter */}
+        <LinkBtn 
+        text="Twitter" 
+        color="bg-[#1D99E5] hover:bg-blue-800 dark:hover:bg-blue-700" 
+        link="https://fb.com/TershiXia" 
+        icon="twitter"
+        />
 
         {/* Discord */}
+        <LinkBtn 
+        text="Discord" 
+        color="bg-[#5765F2] hover:bg-blue-800 dark:hover:bg-blue-700" 
+        link="https://fb.com/TershiXia" 
+        icon="discord"
+        />
       </div>
     </div>
   )
