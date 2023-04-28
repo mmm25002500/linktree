@@ -50,6 +50,11 @@ const Navbar = () => {
                 <FontAwesomeIcon icon={['fas', 'moon']} className='pl-1 text-cyan-500' />
               </button>
             </li>
+            {/* <li>
+              <button onClick={() => console.log('登入')} type="button" >
+                <FontAwesomeIcon icon={['fas', 'right-to-bracket']} className='pl-1 text-cyan-500' />
+              </button>
+            </li> */}
           </ul>
         </div>
       </div>
