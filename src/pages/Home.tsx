@@ -33,7 +33,7 @@ const Home = () => {
           <LinkBtn 
           text="Instagram" 
           color="bg-[#D50D8C] hover:bg-red-800 dark:hover:bg-red-700" 
-          link="https://fb.com/TershiXia" 
+          link="https://instagram.com/TershiXia" 
           icon="instagram"
           />
 
@@ -41,7 +41,7 @@ const Home = () => {
           <LinkBtn 
           text="Twitter" 
           color="bg-[#1D99E5] hover:bg-blue-800 dark:hover:bg-blue-700" 
-          link="https://fb.com/TershiXia" 
+          link="https://twitter.com/TershiXia" 
           icon="twitter"
           />
 
@@ -49,8 +49,24 @@ const Home = () => {
           <LinkBtn 
           text="Discord" 
           color="bg-[#5765F2] hover:bg-blue-800 dark:hover:bg-blue-700" 
-          link="https://fb.com/TershiXia" 
+          link="https://discordapp.com/users/508266434091155467" 
           icon="discord"
+          />
+
+          {/* Github */}
+          <LinkBtn 
+          text="Github" 
+          color="bg-[#1B1D21] hover:bg-blue-800 dark:hover:bg-blue-700" 
+          link="https://github.com/mmm25002500" 
+          icon="github"
+          />
+
+          {/* Telegram */}
+          <LinkBtn 
+          text="Telegram" 
+          color="bg-[#249FDB] hover:bg-blue-800 dark:hover:bg-blue-700" 
+          link="https://t.me/TershiXia" 
+          icon="telegram"
           />
         </div>
       </div>
