@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className=" flex flex-wrap items-center justify-between mx-auto">
         <div></div>
         <div className="block w-auto pt-2 pr-2" id="navbar-multi-level">
-          <ul className="flex font-medium p-0 flex-row md:space-x-8 mt-0">
+          <ul className="flex font-medium p-0 flex-row space-x-8 mt-0">
             <li className=''>
               <button onClick={() => setDarkMode('white')} type="button">
                 <FontAwesomeIcon icon={['fas', 'sun']} className='pl-1 text-cyan-500' />
