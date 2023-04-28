@@ -22,9 +22,8 @@ const Navbar = () => {
       document.getElementsByTagName('body')[0].classList.add('bg-gray-800');
     } else if (darkMode === 'bg') {
       localStorage.setItem('darkMode', 'bg');
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('dark');
       document.getElementsByTagName('body')[0].style.backgroundImage = `url('${BackgroundImage}')`;
-      // document.getElementsByTagName('body')[0].classList.add(`bg-[url('${BackgroundImage}')]`);
       document.getElementsByTagName('body')[0].classList.remove('bg-white', 'bg-gray-800');
     }
   }, [darkMode]);
