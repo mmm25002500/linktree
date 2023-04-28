@@ -32,7 +32,7 @@ const Navbar = () => {
     <nav className="">
       <div className=" flex flex-wrap items-center justify-between mx-auto">
         <div></div>
-        <div className="block w-auto" id="navbar-multi-level">
+        <div className="block w-auto pt-2 pr-2" id="navbar-multi-level">
           <ul className="flex font-medium p-0 flex-row md:space-x-8 mt-0">
             <li className=''>
               <button onClick={() => setDarkMode('white')} type="button">

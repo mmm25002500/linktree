@@ -10,7 +10,8 @@ const Home = () => {
         <div className="flex justify-center p-2">
           <img className="rounded-full ring-2 p-1 ring-gray-300 dark:ring-gray-500 w-36 h-36" src={TershiXia} alt="Extra large avatar"></img>
         </div>
-        <div className="text-2xl text-center pb-2">夏特稀(TershiXia)</div>
+        <div className="text-2xl text-center">夏特稀(TershiXia)</div>
+        <p className="text-base text-center text-gray-500 dark:text-gray-400">一個正在讀大學的學生，為了台灣資訊安全與自己的夢想而努力。</p>
 
         <div className="pt-5">
           {/* Facebook */}
