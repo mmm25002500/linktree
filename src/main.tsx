@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom/client'
 
 // components
-// import Navbar from "./components/Navbar";
-// import Footer from "./components/Footer";
+import Navbar from "./components/navbar";
+import Footer from "./components/Footer";
 
 // Pages
 import App from "./App";
@@ -22,11 +22,11 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   </React.StrictMode>
 )
