@@ -32,7 +32,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <App />
       <Navbar />
       <Routes>
-        <Route path='/' element={<AuthRoute><Home /></AuthRoute>} />
+        {/* <Route path='/' element={<AuthRoute><Home /></AuthRoute>} /> */}
+        <Route path='/' element={<Home />} />
         <Route path='/login' element={ <LoginPage /> }></Route>
       </Routes>
       <Footer />

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // bg
 import BackgroundImage from '../assets/bg.jpg';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(localStorage.getItem('darkMode'));
@@ -39,7 +40,6 @@ const Navbar = () => {
                 <FontAwesomeIcon icon={['fas', 'sun']} className='pl-1 text-cyan-500' />
               </button>
             </li>
-              
             <li>
               <button onClick={() => setDarkMode('bg')} type="button" >
                 <FontAwesomeIcon icon={['fas', 'mountain-sun']} className='pl-1 text-cyan-500' />
@@ -50,11 +50,11 @@ const Navbar = () => {
                 <FontAwesomeIcon icon={['fas', 'moon']} className='pl-1 text-cyan-500' />
               </button>
             </li>
-            {/* <li>
-              <button onClick={() => console.log('登入')} type="button" >
+            <li>
+              <Link to='/login' type="button" >
                 <FontAwesomeIcon icon={['fas', 'right-to-bracket']} className='pl-1 text-cyan-500' />
-              </button>
-            </li> */}
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

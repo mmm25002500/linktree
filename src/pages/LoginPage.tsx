@@ -4,32 +4,32 @@ import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
 
-    const auth = getAuth();
-    const navigate = useNavigate();
-    const [authing, setAuthing] = useState(false);
+  const auth = getAuth();
+  const navigate = useNavigate();
+  const [authing, setAuthing] = useState(false);
 
-    const signInWithGoogle = () => {
-        setAuthing(true);
+  const signInWithGoogle = () => {
+    setAuthing(true);
 
-        signInWithPopup(auth, new GoogleAuthProvider())
-            .then(response => {
-                console.log(response.user.uid);
-                navigate('/');
-            })
-            .catch(error => {
-                console.log(error);
-                setAuthing(false);
-            });
-    };
+    signInWithPopup(auth, new GoogleAuthProvider())
+      .then(response => {
+        console.log(response.user.uid);
+        navigate('/');
+      })
+      .catch(error => {
+        console.log(error);
+        setAuthing(false);
+      });
+  };
 
-    return (
-        <div>
-            <p>Login Page</p>
-            <button onClick={() => signInWithGoogle()} disabled={authing}>
-                Sign in with Google
-            </button>
-        </div>
-    )
+  return (
+    <div>
+      <p>Login Page</p>
+      <button onClick={() => signInWithGoogle()} disabled={authing}>
+        Sign in with Google
+      </button>
+    </div>
+  )
 }
 
 export default LoginPage;
