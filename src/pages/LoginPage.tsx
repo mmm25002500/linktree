@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 
 // google
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, User } from "firebase/auth";
 import GoogleLoginImage from "../assets/Oauth/btn_google_signin_dark.png";
 
 const LoginPage = () => {
@@ -13,6 +13,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [authing, setAuthing] = useState(false);
 
+  // implement login method with popup
   const signInWithGoogle = () => {
     setAuthing(true);
 

@@ -18,10 +18,15 @@ const AuthRoute = (props: Props) => {
         return () => checkAuth();
     }, [Auth]);
 
+    // check if user is logged in
     const checkAuth = onAuthStateChanged(Auth, (user) => {
         if (user) {
+            // if user logged in, set loading to false and navigate to home page
             setLoading(false);
+            console.log('User is logged in');
+            navigate('/');
         } else {
+            // if user not logged in, set loading to false and navigate to login page
             console.log('User is not logged in');
             navigate('/login');
         }
@@ -29,7 +34,7 @@ const AuthRoute = (props: Props) => {
 
     if (loading) {
         return (
-            <div>Loading...</div>
+            <div>Redirect...</div>
         )
     }
     return (
