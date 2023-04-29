@@ -1,19 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TershiXia from "../assets/tershi.jpg";
 import LinkBtn from "../components/button";
-
-// firebase
-// import { getAuth, signOut } from "@firebase/auth";
+import Card from "../components/Card";
 
 const Home = () => {
-
-  // const auth = getAuth();
-
-
   return (
     <div className="container mx-auto pt-8 pl-5 pr-5 text-black dark:text-white transition-colors duration-100">
-      {/* <button onClick={() => signOut(auth)}> Sign out with Google</button> */}
-      <div className="w-full p-6 bg-gray-300 border border-gray-200 rounded-lg shadow dark:bg-gray-900/75 dark:border-gray-700 bg-opacity-40">
+      <Card>
         <div className="flex justify-center p-2">
           <img className="rounded-full ring-2 p-1 ring-gray-300 dark:ring-gray-500 w-36 h-36" src={TershiXia} alt="Extra large avatar"></img>
         </div>
@@ -77,7 +70,7 @@ const Home = () => {
           icon="telegram"
           />
         </div>
-      </div>
+      </Card>
     
   </div>
 
