@@ -61,6 +61,26 @@ const UserPage = () => {
     if (user_info != undefined) {
       setUser(user_info);
       setSocialLink(user_info.data.social_link);
+    } else {
+      setUser(
+        {
+          data: {
+            name: '',
+            eng_name: '',
+            description: '',
+            social_link: {
+              fb: '',
+              ig: '',
+              dc: '',
+              yt: '',
+              tg: '',
+              twitter: '',
+              github: ''
+            }
+          },
+          id: ''
+        }
+      );
     }
   }
 
@@ -80,7 +100,15 @@ const UserPage = () => {
             alt="Extra large avatar"
           />
         </div>
-        <div className="text-2xl text-center">{user.data.name}({ user.data.eng_name})</div>
+        <div className="text-2xl text-center">
+          {
+            user.data.name ? (
+              <>{user.data.name}({user.data.eng_name})</>
+            ) : (
+                <>找不到此人</>
+            )
+          }
+        </div>
         <p className="text-base text-center text-gray-500 dark:text-gray-400">{user.data.description}</p>
 
         {/* Social Links */}
