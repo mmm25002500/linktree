@@ -18,7 +18,7 @@ const Home = () => {
 
         <div className="grid grid-cols-3 gap-4 relative pb-10">
           <div className="md:col-span-2">
-            <p className="text-lg md:text-2xl pt-3">
+            <div className="text-lg md:text-2xl pt-3">
               想要製作好看的連結樹嗎？不管您的喜歡的是
               <button
                 onClick={ () => navigate('/simple')}
@@ -51,7 +51,7 @@ const Home = () => {
                   或已有帳戶了？立刻來看看您的作品吧！
                 </button>
               </div>
-            </p>
+            </div>
           </div>
           <div className="col-span-2 md:col-span-1">
             <img src={ example_TershiXia } className=" md:w-80"/>

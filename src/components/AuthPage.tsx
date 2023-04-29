@@ -11,7 +11,6 @@ const AuthRoute = (props: Props) => {
 
     const Auth = getAuth();
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
         checkAuth();
@@ -22,21 +21,13 @@ const AuthRoute = (props: Props) => {
     const checkAuth = onAuthStateChanged(Auth, (user) => {
         if (user) {
             // if user logged in, set loading to false and navigate to home page
-            setLoading(false);
             console.log('User is logged in');
-            navigate('/');
         } else {
             // if user not logged in, set loading to false and navigate to login page
             console.log('User is not logged in');
-            // navigate('/login');
+            navigate('/login');
         }
     });
-
-    // if (loading) {
-    //     return (
-    //         <div>Redirect...</div>
-    //     )
-    // }
     return (
         <>{props.children}</>
     )

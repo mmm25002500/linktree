@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // bg
@@ -10,6 +11,7 @@ import { getAuth, signOut, onAuthStateChanged, User } from "firebase/auth";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(localStorage.getItem('darkMode'));
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (darkMode === 'white') {
@@ -50,16 +52,27 @@ const Navbar = () => {
     if (user) {
       // if user logged in, show logout btn
       return (
-        <button onClick={ () => signOut(auth)}>
-          <FontAwesomeIcon icon={['fas', 'right-from-bracket']} className='pl-1 text-cyan-500' />
-        </button>
+        <>
+          <li>
+            <button onClick={ () => signOut(auth)}>
+              <FontAwesomeIcon icon={['fas', 'right-from-bracket']} className='pl-1 text-cyan-500' />
+            </button>
+          </li>
+          <li>
+            <button onClick={ () => navigate('/setting')}>
+              <FontAwesomeIcon icon={['fas', 'gear']} className='pl-1 text-cyan-500' />
+            </button>
+          </li>
+        </>
       )
     } else {
       // if user not logged in, navigate to login page
       return (
-        <Link to='/login' type="button" >
-          <FontAwesomeIcon icon={['fas', 'right-to-bracket']} className='pl-1 text-cyan-500' />
-        </Link>
+        <li>
+          <Link to='/login' type="button" >
+            <FontAwesomeIcon icon={['fas', 'right-to-bracket']} className='pl-1 text-cyan-500' />
+          </Link>
+        </li>
       )
     }
   }
@@ -93,8 +106,11 @@ const Navbar = () => {
             </li>
 
             {/* login page */}
+            <LoginPage />
+
+            {/* setting page */}
             <li>
-               <LoginPage />
+
             </li>
           </ul>
         </div>
