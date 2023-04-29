@@ -75,7 +75,10 @@ const UserPage = () => {
     <div className="container mx-auto pt-8 pl-5 pr-5 text-black dark:text-white transition-colors duration-100">
       <Card>
         <div className="flex justify-center p-2">
-          <img className="rounded-full ring-2 p-1 ring-gray-300 dark:ring-gray-500 w-36 h-36" src={TershiXia} alt="Extra large avatar"></img>
+          <img className="rounded-full ring-2 p-1 ring-gray-300 dark:ring-gray-500 w-36 h-36"
+            src={TershiXia}
+            alt="Extra large avatar"
+          />
         </div>
         <div className="text-2xl text-center">{user.data.name}({ user.data.eng_name})</div>
         <p className="text-base text-center text-gray-500 dark:text-gray-400">{user.data.description}</p>

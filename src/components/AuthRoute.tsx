@@ -29,15 +29,15 @@ const AuthRoute = (props: Props) => {
         } else {
             // if user not logged in, set loading to false and navigate to login page
             console.log('User is not logged in');
-            navigate('/login');
+            // navigate('/login');
         }
     });
 
-    if (loading) {
-        return (
-            <div>Redirect...</div>
-        )
-    }
+    // if (loading) {
+    //     return (
+    //         <div>Redirect...</div>
+    //     )
+    // }
     return (
         <>{props.children}</>
     )
