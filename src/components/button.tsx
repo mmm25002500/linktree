@@ -8,7 +8,11 @@ interface Props {
   icon: IconName;
 }
 
-const button = (props: Props) => { 
+const button = (props: Props) => {
+
+  if (!props.link)
+    return <></>
+  
   return (
     <div>
       <a href={ props.link } target="_blank">

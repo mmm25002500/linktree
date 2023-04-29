@@ -39,7 +39,10 @@ const Test = () => {
 
   // get user by id
   const getUserById = (id: string | undefined, users: any[]) => {
-    setUser(users.find(user_data => user_data.id === id));
+    const user_info = users.find(user_data => user_data.id === id)
+    if (user_info != undefined) {
+      setUser(user_info);
+    }
   }
 
   // get user by id when users state is updated
@@ -50,11 +53,7 @@ const Test = () => {
   return (
     <div>
       {
-        user != undefined ? (
-          <div>{ user.id }</div>
-        ) : (
-            <></>
-        )
+        user && <div>{user.id}</div>
       }
     </div>
   )
