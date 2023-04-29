@@ -12,6 +12,7 @@ const AuthRoute = (props: Props) => {
     const Auth = getAuth();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
+    
 
     useEffect(() => {
         checkAuth();

@@ -35,6 +35,7 @@ const Navbar = () => {
   // google
   const auth = getAuth();
 
+  // navbar login & logout btn
   const LoginPage = () => {
 
     const [user, setUser] = useState<User | null>(null);;
@@ -47,12 +48,14 @@ const Navbar = () => {
     }, []);
     
     if (user) {
+      // if user logged in, show logout btn
       return (
         <button onClick={ () => signOut(auth)}>
           <FontAwesomeIcon icon={['fas', 'right-from-bracket']} className='pl-1 text-cyan-500' />
         </button>
       )
     } else {
+      // if user not logged in, navigate to login page
       return (
         <Link to='/login' type="button" >
           <FontAwesomeIcon icon={['fas', 'right-to-bracket']} className='pl-1 text-cyan-500' />

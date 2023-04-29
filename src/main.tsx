@@ -10,6 +10,8 @@ import Footer from './components/Footer';
 import App from './App';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
+import Test from './pages/Test';
+import NotFound from './pages/NotFound';
 
 import './index.css'
 
@@ -34,7 +36,12 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <Routes>
         {/* <Route path='/' element={<AuthRoute><Home /></AuthRoute>} /> */}
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={ <AuthRoute><LoginPage /></AuthRoute> }></Route>
+        {/* <Route path='/login' element={<AuthRoute><LoginPage /></AuthRoute>}></Route> */}
+        <Route path='/login' element={<LoginPage />}></Route>
+        <Route path='/test' element={<Test />}></Route>
+        <Route path='/user/:id' element={<Test />}></Route>
+        <Route path='/user' element={<NotFound />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
