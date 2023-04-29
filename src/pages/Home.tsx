@@ -14,11 +14,11 @@ const Home = () => {
   return (
     <div className="container mx-auto pt-8 pl-5 pr-5 text-black dark:text-white transition-colors duration-100">
       <Card>
-        <h1 className="text-4xl pb-5 text-teal-600 dark:text-teal-400">LinkTree 連結樹</h1>
+        <h1 className="text-3xl md:text-4xl pb-5 text-teal-600 dark:text-teal-400">LinkTree 連結樹</h1>
 
-        <div className="grid grid-cols-3 gap-4 relative">
-          <div className="col-span-2">
-            <p className="text-3xl p-6">
+        <div className="grid grid-cols-3 gap-4 relative pb-10">
+          <div className="md:col-span-2">
+            <p className="text-lg md:text-2xl pt-3">
               想要製作好看的連結樹嗎？不管您的喜歡的是
               <button
                 onClick={ () => navigate('/simple')}
@@ -35,7 +35,8 @@ const Home = () => {
               </button>
               ，都可以在這裡找到。
               <br />
-              <div className="absolute bottom-0 text-2xl">
+
+              <div className="absolute bottom-0 text-sm sm:text-2xl">
                 <button
                   className="text-cyan-400 dark:text-cyan-300 underline underline-offset-4 pr-3"
                   onClick={() => navigate('/login')}
@@ -52,12 +53,11 @@ const Home = () => {
               </div>
             </p>
           </div>
-          <div>
-            <img src={ example_TershiXia } className="w-80"/>
+          <div className="col-span-2 md:col-span-1">
+            <img src={ example_TershiXia } className=" md:w-80"/>
           </div>
         </div>
       </Card>
-    
   </div>
 
   )
