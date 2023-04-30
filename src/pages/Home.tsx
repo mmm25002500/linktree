@@ -1,7 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import TershiXia from "../assets/tershi.jpg";
-import LinkBtn from "../components/button";
 import Card from "../components/Card";
 
 // images
