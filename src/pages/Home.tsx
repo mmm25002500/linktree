@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 
 // images
-import example_TershiXia from "../assets/example/example_TershiXia.png";
+import example_TershiXia from "../assets/example/example_TershiXia.webp";
 
 const Home = () => {
   
