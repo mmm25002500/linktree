@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // bg
-import BackgroundImage from '../assets/bg.jpg';
+import BackgroundImage from '../assets/bg.webp';
 import { Link } from 'react-router-dom';
 
 // google

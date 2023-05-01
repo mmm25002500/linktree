@@ -6,6 +6,7 @@ interface UserData {
   name: string;
   eng_name: string;
   nick: string;
+  img: string;
   description: string;
   user_id: string;
   uid: string;
@@ -24,6 +25,7 @@ const Profile = () => {
     name: '',
     eng_name: '',
     nick: '',
+    img: '',
     description: '',
     user_id: '',
     uid: '',
@@ -142,6 +144,7 @@ const Profile = () => {
               name: doc.data().name,
               eng_name: doc.data().eng_name,
               nick: doc.data().nick,
+              img: doc.data().img,
               description: doc.data().description,
               user_id: doc.data().user_id,
               uid: doc.data().uid,
@@ -184,14 +187,20 @@ const Profile = () => {
           {/* after creating, lock it */}
           <div>
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">使用者ID</label>
-            <input value={ userData.user_id } onChange={e => setUserData({...userData, user_id: e.target.value})} type="test" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"disabled={userExist ? true : false} placeholder="User ID" required />
+            <input value={ userData.user_id } onChange={e => setUserData({...userData, user_id: e.target.value})} type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"disabled={userExist ? true : false} placeholder="User ID" required />
           </div>
         </div>
 
         {/* description */}
         <div className="mb-6">
           <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">介紹一下你自己</label>
-          <input value={ userData.description } onChange={e => setUserData({...userData, description: e.target.value})} type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required />
+          <input value={ userData.description } onChange={e => setUserData({...userData, description: e.target.value})} type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="intro urself" required />
+        </div> 
+
+        {/* img_link */}
+        <div className="mb-6">
+          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">介紹一下你自己</label>
+          <input value={ userData.img } onChange={e => setUserData({...userData, img: e.target.value})} type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter image link" required />
         </div> 
 
         {/* website link */}

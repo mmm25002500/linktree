@@ -68,6 +68,8 @@ const UserPage = () => {
             name: '',
             eng_name: '',
             description: '',
+            nick: '',
+            img: '',
             social_link: {
               fb: '',
               ig: '',
@@ -96,7 +98,7 @@ const UserPage = () => {
       <Card>
         <div className="flex justify-center p-2">
           <img className="rounded-full ring-2 p-1 ring-gray-300 dark:ring-gray-500 w-36 h-36"
-            src={TershiXia}
+            src={user.data.img}
             alt="Extra large avatar"
           />
         </div>
