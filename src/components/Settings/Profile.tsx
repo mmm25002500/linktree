@@ -259,22 +259,6 @@ const Profile = () => {
         {/* after creating, changeg "建立" to "更改" */}
         <button onClick={() => submit()} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">更改</button>
       </form>
-
-      <input
-        type="text"
-        value={userData.name}
-        onChange={(e) => setUserData({ ...user ,name: e.target.value })}
-      />
-      <button onClick={() => createNewData()}>add</button>
-
-
-      <input
-        type="text"
-        value={userID}
-        onChange={(e) => setUserID(e.target.value)}
-      />
-      {/* <button onClick={() => checkData(userID)}>search</button> */}
-      { userExist ? <div>exist</div> : <div>not exist</div>}
     </div>
   )
 }
