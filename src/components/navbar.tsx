@@ -8,10 +8,36 @@ import { Link } from 'react-router-dom';
 
 // google
 import { getAuth, signOut, onAuthStateChanged, User } from "firebase/auth";
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(localStorage.getItem('darkMode'));
   const navigate = useNavigate();
+  
+  const [auth_uid, setAuthUid] = useState('');
+  const [remote_uid, setRemoteUid] = useState('');
+  const [remote_id, setRemoteId] = useState('');
+
+  const db = getFirestore();
+  const userCollRef = collection(db, "user");
+
+  useEffect(() => {
+    // get user id from auth
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        setAuthUid(user.uid);
+        
+        const q = query(userCollRef, where("uid", "==", user.uid));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          if (doc.data())
+            // setUserExist(true);
+            setRemoteUid(doc.data().uid);
+            setRemoteId(doc.data().user_id);
+        });
+      }
+    });
+  }, []);
 
   useEffect(() => {
     if (darkMode === 'white') {
@@ -53,21 +79,38 @@ const Navbar = () => {
       // if user logged in, show logout btn
       return (
         <>
+          {/* Sign out */}
           <li>
             <button onClick={ () => signOut(auth)}>
               <FontAwesomeIcon icon={['fas', 'right-from-bracket']} className='pl-1 text-cyan-500' />
             </button>
           </li>
+
+          {/* Setting */}
           <li>
             <button onClick={ () => navigate('/setting')}>
               <FontAwesomeIcon icon={['fas', 'gear']} className='pl-1 text-cyan-500' />
             </button>
           </li>
+
+          {/* My LinkTree */}
+          {
+            auth_uid === remote_uid ? (
+              <li>
+                <button onClick={ () => navigate(`/user/${remote_id}`)}>
+                  <FontAwesomeIcon icon={['fas', 'address-card']} className='pl-1 text-cyan-500' />
+                </button>
+              </li>
+            ) : (
+              <></>
+            )
+          }
         </>
       )
     } else {
       // if user not logged in, navigate to login page
       return (
+        // Sign in
         <li>
           <Link to='/login' type="button" >
             <FontAwesomeIcon icon={['fas', 'right-to-bracket']} className='pl-1 text-cyan-500' />
