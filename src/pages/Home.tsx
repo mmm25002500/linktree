@@ -1,5 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import Card from "../components/Card";
 
 // images
@@ -37,14 +42,14 @@ const Home = () => {
               <div className="absolute bottom-0 text-sm sm:text-2xl">
                 <button
                   className="text-cyan-400 dark:text-cyan-300 underline underline-offset-4 pr-3"
-                  onClick={() => navigate('/login')}
+                  onClick={() => navigate('/setting')}
                 >
                   立刻試用？
                 </button>
                 |
                 <button
                   className="text-cyan-400 dark:text-cyan-300 underline underline-offset-4 pl-3"
-                  onClick={() => navigate('/me')}
+                  onClick={ () => navigate('/me')}
                 >
                   或已有帳戶了？立刻來看看您的作品吧！
                 </button>

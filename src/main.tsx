@@ -14,6 +14,7 @@ import UserPage from './pages/UserPage';
 import Settings from './pages/Settings';
 import Cool from './pages/example/Cool';
 import Simple from './pages/example/Simple';
+import MeRedirect from './pages/MeRedirect';
 import NotFound from './pages/NotFound';
 
 import './index.css'
@@ -41,6 +42,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         {/* <Route path='/' element={<AuthRoute><Home /></AuthRoute>} /> */}
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<AuthRoute><LoginPage /></AuthRoute>}></Route>
+        <Route path='/me' element={<MeRedirect />}></Route>
         {/* <Route path='/login' element={<LoginPage />}></Route> */}
         <Route path='/user/:id' element={<UserPage />}></Route>
         <Route path='/user' element={<NotFound />}></Route>

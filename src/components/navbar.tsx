@@ -94,17 +94,11 @@ const Navbar = () => {
           </li>
 
           {/* My LinkTree */}
-          {
-            auth_uid === remote_uid ? (
-              <li>
-                <button onClick={ () => navigate(`/user/${remote_id}`)}>
-                  <FontAwesomeIcon icon={['fas', 'address-card']} className='pl-1 text-cyan-500' />
-                </button>
-              </li>
-            ) : (
-              <></>
-            )
-          }
+          <li>
+            <button onClick={ () => navigate('/me')}>
+              <FontAwesomeIcon icon={['fas', 'address-card']} className='pl-1 text-cyan-500' />
+            </button>
+          </li>
         </>
       )
     } else {
