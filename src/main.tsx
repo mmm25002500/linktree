@@ -28,6 +28,7 @@ import { initializeApp } from 'firebase/app'
 import { config } from './config/config'
 import AuthRoute from './components/AuthRoute';
 import AuthPage from './components/AuthPage';
+import { Toaster } from 'react-hot-toast';
 
 initializeApp(config.firebaseConfig)
 
@@ -37,6 +38,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
+      <Toaster />
       <Navbar />
       <Routes>
         {/* <Route path='/' element={<AuthRoute><Home /></AuthRoute>} /> */}

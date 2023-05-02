@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BackgroundImage from '../assets/bg.webp';
 import { Link } from 'react-router-dom';
 
+import { toast } from 'react-hot-toast';
+
 // google
 import { getAuth, signOut, onAuthStateChanged, User } from "firebase/auth";
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
@@ -81,7 +83,22 @@ const Navbar = () => {
         <>
           {/* Sign out */}
           <li>
-            <button onClick={ () => signOut(auth)}>
+            <button
+              onClick={() =>
+                signOut(auth)
+                  .then(res => {
+                    toast.error('登出成功!', {
+                      position: "top-right"
+                    });
+                  })
+                  .catch(err => {
+                    toast.error('登出失敗!', {
+                      position: "top-right"
+                    });
+                  }
+                  )
+              }
+            >
               <FontAwesomeIcon icon={['fas', 'right-from-bracket']} className='pl-1 text-cyan-500' />
             </button>
           </li>

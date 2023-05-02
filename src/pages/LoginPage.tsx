@@ -5,6 +5,7 @@ import Card from "../components/Card";
 // google
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, User } from "firebase/auth";
 import GoogleLoginImage from "../assets/Oauth/btn_google_signin_dark.png";
+import { toast } from "react-hot-toast";
 
 const LoginPage = () => {
 
@@ -20,10 +21,16 @@ const LoginPage = () => {
     signInWithPopup(auth, new GoogleAuthProvider())
       .then(response => {
         console.log(response.user.uid);
+        toast.success('登入成功!', {
+          position: "top-right"
+        });
         navigate('/');
       })
       .catch(error => {
         console.log(error);
+        toast.success('登入失敗!', {
+          position: "top-right"
+        });
         setAuthing(false);
       });
   };

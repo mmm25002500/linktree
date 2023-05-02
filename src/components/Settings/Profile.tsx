@@ -3,6 +3,7 @@ import { addDoc, collection, doc, getDocs, getFirestore, query, setDoc, where } 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Toaster, toast } from "react-hot-toast";
 
 interface UserData {
   name: string;
@@ -92,46 +93,68 @@ const Profile = () => {
   // create user data in firestore
   const createNewData = () => {
     // const userCollRef = collection(db, "user");
-    console.log(userData);
+    // console.log(userData);
 
     // if user_id not in all_user_id
     if (!all_user_id.includes(userData.user_id)) {
       // add user data to firestore
       setDoc(doc(db, 'user', userData.user_id), { ...userData, uid: Uid }).then(res => {
-        console.log(res);
+        // console.log(res);
+        toast.success('建立資料成功!', {
+          position: "top-right"
+        });
       }
       ).catch(err => {
         console.log(err);
+        toast.error('建立資料失敗!', {
+          position: "top-right"
+        });
       })
     } else {
       console.log('user_id already exist! do not use this user_id');
+      toast.error('這個使用者名稱已存在，請勿使用此id!', {
+        position: "top-right"
+      });
     }
   }
  
   const editData = () => {
-    console.log('userid:', userData.user_id)
-    console.log('authuserid:', authUserID)
+    // console.log('userid:', userData.user_id)
+    // console.log('authuserid:', authUserID)
     if (userExist && userData.user_id === authUserID) {
 
       // add user data to firestore
-      setDoc(doc(db, 'user', userData.user_id), { ...userData, uid: Uid }).then(res => {
-        console.log(res);
-      }
-      ).catch(err => {
-        console.log(err);
-      })
+      setDoc(doc(db, 'user', userData.user_id), { ...userData, uid: Uid })
+        .then(res => {
+          // console.log(res);
+          toast.success('更新資料成功!', {
+            position: "top-right"
+          });
+        }
+        ).catch(err => {
+          console.log(err);
+          toast.error('更新資料失敗!', {
+            position: "top-right"
+          });
+        }
+      )
+    } else {
+      toast.error('更新資料失敗!\n user_id與當前登入不匹配！', {
+        position: "top-right"
+      });
     }
   }
 
-  const submit = () => {
+  const submit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     // 檢查uid 是否在user collection中
     if (userExist) {
       // update user data
-      console.log('update');
+      // console.log('update');
       editData();
     } else {
       // create new user data
-      console.log('create');
+      // console.log('create');
       createNewData();
     }
   }
@@ -160,7 +183,7 @@ const Profile = () => {
     getData(Uid);
   }, [userExist])
 
-  console.log(userData);
+  // console.log(userData);
   
   // console.log(Uid);
   // console.log(userExist);
@@ -200,7 +223,7 @@ const Profile = () => {
       ,
       document.body)}
       
-      <form>
+      <form onSubmit={submit}>
         {/* personal information */}
         <div className="grid gap-6 mb-6 md:grid-cols-2">
           {/* Name */}
@@ -289,13 +312,13 @@ const Profile = () => {
         {/* term */}
         <div className="flex items-start mb-6">
           <div className="flex items-center h-5">
-          <input type="checkbox"className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
+          <input type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
           </div>
           <label onClick={() => setShowPopover(!showPopover)} className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">我同意 <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">靈萌團隊連結樹使用條款</a>。</label>
         </div>
 
         {/* after creating, changeg "建立" to "更改" */}
-        <button onClick={() => submit()} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">更改</button>
+        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">更改</button>
       </form>
     </div>
   )

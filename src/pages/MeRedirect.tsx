@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const Meredirect = () => {
@@ -22,6 +24,13 @@ const Meredirect = () => {
         });
       }
       else { 
+        toast(
+          <span className='align-middle'>
+            <FontAwesomeIcon icon={['fas', 'triangle-exclamation']} className='text-orange-400 pr-2'/>
+            請先登入
+          </span>, {
+          position: "top-right"
+        });
         navigate('/login');
       }
     });
