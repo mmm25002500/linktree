@@ -24,7 +24,7 @@ const AuthRoute = (props: Props) => {
             // if user logged in, set loading to false and navigate to home page
             setLoading(false);
             console.log('User is logged in');
-            navigate('/');
+            navigate('/setting');
         } else {
             // if user not logged in, set loading to false and navigate to login page
             console.log('User is not logged in');
