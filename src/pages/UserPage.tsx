@@ -125,7 +125,7 @@ const UserPage = () => {
           />
 
           {/* YouTube */}
-          <LinkBtn 
+          <LinkBtn
           text="YouTube" 
           color="bg-red-700 hover:bg-red-800 dark:hover:bg-red-700" 
           link={social_link.yt}
