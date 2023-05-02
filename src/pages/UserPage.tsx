@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TershiXia from "../assets/tershi.jpg";
 import LinkBtn from "../components/button";
 import Card from "../components/Card";
+import NoFaceImg from "../assets/noface.png";
 
 interface UserData {
   data: DocumentData;
@@ -98,7 +99,7 @@ const UserPage = () => {
       <Card>
         <div className="flex justify-center p-2">
           <img className="rounded-full ring-2 p-1 ring-gray-300 dark:ring-gray-500 w-36 h-36"
-            src={user.data.img}
+            src={user.data.img? user.data.img : NoFaceImg}
             alt="Extra large avatar"
           />
         </div>
