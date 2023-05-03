@@ -138,6 +138,20 @@ const Navbar = () => {
         <div></div>
         <div className="block w-auto pt-2 pr-2" id="navbar-multi-level">
           <ul className="flex font-medium p-0 flex-row space-x-8 mt-0">
+            {/* homepage */}
+            <li>
+              <button onClick={ () => navigate('/')}>
+                <FontAwesomeIcon icon={['fas', 'house']} className='pl-1 text-cyan-500' />
+              </button>
+            </li>
+
+            {/* search */}
+            <li>
+              <button onClick={ () => navigate('/search')}>
+                <FontAwesomeIcon icon={['fas', 'magnifying-glass']} className='pl-1 text-cyan-500' />
+              </button>
+            </li>
+            
             {/* light mode */}
             <li className=''>
               <button onClick={() => setDarkMode('white')} type="button">

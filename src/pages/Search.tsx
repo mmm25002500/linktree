@@ -50,13 +50,20 @@ const Search = () => {
       // )
     );
     const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
+    if (querySnapshot.empty) {
       setSearchResult({
-        data: doc.data(),
-        id: doc.id
+        data: {},
+        id: ''
       });
-    });
+    } else {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        setSearchResult({
+          data: doc.data(),
+          id: doc.id
+        });
+      });
+    }
   }
   
   useEffect(() => {
@@ -77,14 +84,20 @@ const Search = () => {
           onChange={(e) => setCacheSearch(e.target.value)}
         />
         <div className="pt-5 flex justify-center">
-          <PersonCard
-            img={searchResult.data.img}
-            name={searchResult.data.name}
-            user_id={searchResult.data.user_id}
-            description={searchResult.data.description}
-            nick={searchResult.data.nick}
-            eng_name={searchResult.data.eng_name}
-          />
+          {
+            searchResult.data.uid ? (
+              <PersonCard
+                img={searchResult.data.img}
+                name={searchResult.data.name}
+                user_id={searchResult.data.user_id}
+                description={searchResult.data.description}
+                nick={searchResult.data.nick}
+                eng_name={searchResult.data.eng_name}
+              />
+            ) : (
+                <></>
+            )
+          }
         </div>
       </Card>
     </div>
